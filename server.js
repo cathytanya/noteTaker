@@ -14,24 +14,24 @@ app.use(express.json())
 // route to index.html
 app.get("/",(req,res) => {
     // verify that the get was received
-    res.json(`${req.method} request received * (index.html)`);
-    console.info(`${req.method} request received * (index.html)`);
+    // res.json(`${req.method} request received * (index.html)`);
+    // console.info(`${req.method} request received * (index.html)`);
     // set the homepage as the indexedDB.html
     res.sendFile(path.join(__dirname,"/public/index.html"))
 })
 // route to noteList.html
 app.get("/notes",(req,res) => {
     // verify that the get was received
-    res.json(`${req.method} request received /notes (notes.html)`);
-    console.info(`${req.method} request received (notes.html)`);
+    // res.json(`${req.method} request received /notes (notes.html)`);
+    // console.info(`${req.method} request received (notes.html)`);
     // set the note.html as the following page
     res.sendFile(path.join(__dirname,"/public/notes.html"))
 })
 // route to db.json
 app.get("/api/notes",(req,res) => {
     // verify that the get was received
-    res.json(`${req.method} request received /api/notes (/db/db.json)`);
-    console.info(`${req.method} request received /api/notes (/db/db.json)`);
+    // res.json(`${req.method} request received /api/notes (/db/db.json)`);
+    // console.info(`${req.method} request received /api/notes (/db/db.json)`);
     res.sendFile(path.join(__dirname,"/db/db.json"))
 })
 
