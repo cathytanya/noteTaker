@@ -3,7 +3,8 @@
 ## Purpose:
 User can write and save notes to the application. It will allow them to oranganize their thoughts and keep track of tasks that are needed to be completed.
 
-## Screencastify Link:
+## Link:
+https://notetaker-homework-11.herokuapp.com/
 
 ## Criteria:
 - WHEN I open the Note Taker
