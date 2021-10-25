@@ -22,8 +22,8 @@ app.get("/",(req,res) => {
 // route to noteList.html
 app.get("/notes",(req,res) => {
     // verify that the get was received
-    res.json(`${req.method} request received /notes (notes.html)`);
-    console.info(`${req.method} request received (notes.html)`);
+    // res.json(`${req.method} request received /notes (notes.html)`);
+    // console.info(`${req.method} request received (notes.html)`);
     // set the note.html as the following page
     res.sendFile(path.join(__dirname,"/public/notes.html"))
 })
@@ -43,8 +43,8 @@ app.post("/api/notes",(req,res)=>{
 
     let addNote = req.body;
     let noteList = JSON.parse(fs.readFileSync("./db/db.json"));
-    let noteLength = (noteLength.length).toString();
-    noteList.id = noteLength;
+    let noteLength = (noteList.length).toString();
+    addNote.id = noteLength;
     // push update notes
     noteList.push(addNote)
     
