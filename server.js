@@ -22,8 +22,8 @@ app.get("/",(req,res) => {
 // route to noteList.html
 app.get("/notes",(req,res) => {
     // verify that the get was received
-    // res.json(`${req.method} request received /notes (notes.html)`);
-    // console.info(`${req.method} request received (notes.html)`);
+    res.json(`${req.method} request received /notes (notes.html)`);
+    console.info(`${req.method} request received (notes.html)`);
     // set the note.html as the following page
     res.sendFile(path.join(__dirname,"/public/notes.html"))
 })
@@ -38,8 +38,8 @@ app.get("/api/notes",(req,res) => {
 // save the new notes received
 app.post("/api/notes",(req,res)=>{
     // verify that the POST was received
-    res.json(`${req.method} request received /api/notes`);
-    console.info(`${req.method} request received /api/notes`);
+    // res.json(`${req.method} request received /api/notes`);
+    // console.info(`${req.method} request received /api/notes`);
 
     let addNote = req.body;
     let noteList = JSON.parse(fs.readFileSync("./db/db.json"));
