@@ -6,11 +6,19 @@ const path = require("path");
 const app = express()
 // make a port listener for heroku
 const PORT = process.env.PORT || 3001
-
+// set up the express app to handle data parsing
 app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+// route to index.html
+app.get("/",(req,res) => {
+    // verify that the get was received
+    res.json(`${req.method} request received * (index.html)`);
+    console.info(`${req.method} request received * (index.html)`);
+    // set the homepage as the indexedDB.html
+    res.sendFile(path.join(__dirname,"/public/index.html"))
+})
 // route to noteList.html
 app.get("/notes",(req,res) => {
     // verify that the get was received
@@ -24,16 +32,7 @@ app.get("/api/notes",(req,res) => {
     // verify that the get was received
     res.json(`${req.method} request received /api/notes (/db/db.json)`);
     console.info(`${req.method} request received /api/notes (/db/db.json)`);
-
     res.sendFile(path.join(__dirname,"/db/db.json"))
-})
-// route to index.html
-app.get("/",(req,res) => {
-    // verify that the get was received
-    res.json(`${req.method} request received * (index.html)`);
-    console.info(`${req.method} request received * (index.html)`);
-    // set the homepage as the indexedDB.html
-    res.sendFile(path.join(__dirname,"/public/index.html"))
 })
 
 // save the new notes received
